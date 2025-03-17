@@ -12,13 +12,13 @@ pthread_cond_t condFuel;
 
 int fuel = 0;
 void* fuel_filling(void* arg){
-    for (int i = 0; i<5; i++){
+    for (int i = 0; i<10; i++){
 
         pthread_mutex_lock(&lock);
-        fuel += 150;
+        fuel += 22;
         printf("Filled fuel.... %d\n", fuel);
         pthread_mutex_unlock(&lock);
-        pthread_cond_signal(&condFuel);
+        pthread_cond_broadcast(&condFuel);
         sleep(1);
 
     }
@@ -63,7 +63,7 @@ int main(){
 
     for (int i = 0; i <nthreads; i++){
 
-        if (i==1){
+        if (i==nthreads -1){
             if(pthread_create(&threads[i], NULL, &fuel_filling, NULL)!=0){
                 perror("failed to create thread");
             }
