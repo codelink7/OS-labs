@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+/*
+#include <stdio.h>
+#include <stdlib.h>
 #include <pthread.h>
 #include <string.h>
 #include <sys/time.h>
@@ -271,3 +275,105 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
+*/
+
+void matMult(int **matA, int **matB, int** result, int ROWA, int COLA, int ROWB, int COLB);
+int main(int argc, char *argv[])
+{
+
+
+
+    FILE* file = fopen("a.txt", "r");
+
+    
+
+
+
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+    
+
+    fscanf(file, );
+
+
+
+    // Step 1: Allocate memory for the row pointers
+    int **array = (int **)malloc(3 * sizeof(int *));
+    if (array == NULL) {
+        printf("Memory allocation failed!\n");
+        exit(1);
+    }
+
+    // Step 2: Allocate memory for each row
+    for (int i = 0; i < 3; i++) {
+        array[i] = (int *)malloc(3 * sizeof(int));
+        if (array[i] == NULL) {
+            printf("Memory allocation failed for row %d!\n", i);
+            // Free previously allocated memory before exiting
+            for (int j = 0; j < i; j++) {
+                free(array[j]);
+            }
+            free(array);
+            exit(1);
+        }
+    }
+
+
+    
+
+
+
+
+
+    /*
+    for(int i = 0; i < 3 ; i++){
+
+
+    for(int j = 0; j < 3; j++){
+        
+    
+    result[i][j] = 0;
+    for (int k = 0; k < 3; k++){
+        
+    result[i][j] += matA[i][k]*matB[k][j];
+    }
+    
+    }
+    
+    }
+    */
+   
+   
+   
+   // matMult(matA,matB,array);
+
+
+
+
+
+
+
+    return 0;
+}
+
+// void matMult(int matA[3][3], int matB[3][3], int **result)
+// {
+
+//     for (int i = 0; i < 3; i++)
+//     {
+
+//         for (int j = 0; j < 3; j++)
+//         {
+
+//             result[i][j] = 0;
+//             for (int k = 0; k < 3; k++)
+//             {
+
+//                 result[i][j] += matA[i][k] * matB[k][j];
+//             }
+//         }
+//     }
+// }
