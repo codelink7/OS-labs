@@ -147,7 +147,7 @@ def simulate(process_list, mode, time_quantum=None):
 
 
 ### Main Program ###
-printf("CPU Scheduling script for Solving OS assginment sheets :)")
+print("CPU Scheduling script for Solving OS assginment sheets :)")
 processes = get_user_processes()
 mode = choose_mode()
 time_quantum = None
