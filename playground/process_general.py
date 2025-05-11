@@ -146,7 +146,7 @@ def simulate(process_list, mode, time_quantum=None):
         print(f"{p.name:<10}{p.arrival_time:<8}{p.service_time:<8}{p.completion_time:<10}{turnaround:<12}{waiting:<8}")
 
 
-# --- Main Program ---
+
 if __name__ == "__main__":
     processes = get_user_processes()
     mode = choose_mode()
